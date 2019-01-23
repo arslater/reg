@@ -11,11 +11,11 @@
 
 ## Reopen firefox & log into MyUalbany
 firefox https://www.albany.edu/main/myualbany-student.shtml
-sleep 1
-xdotool type "USERNAME"
+sleep 2
+xdotool type "$MYUSERNAME"
 xdotool key Tab
 sleep 1
-xdotool type "PASSWORD"
+xdotool type "$MYPASSWORD"
 sleep 1
 xdotool key Return
 

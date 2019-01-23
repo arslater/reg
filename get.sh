@@ -5,7 +5,7 @@ rm -rf auto_pull.html
 
 firefox --new-tab "https://ps.itsli.albany.edu/psc/he90prod/EMPLOYEE/HRMS/c/SA_LEARNER_SERVICES.SSR_SSENRL_CART.GBL?&"
 
-sleep 1
+sleep 5
 
 #xdotool type "9058"
 xdotool type "3940" ## OPEN CLASS!!
@@ -18,7 +18,7 @@ xdotool key ctrl+s
 xdotool type "auto_pull"
 ## TODO: Add a timestamp & folder, and them smartly remove these automatically.
 xdotool key Return 
-sleep 1
+sleep 5
 ## make sure the file saved in the correct (current) diretory
 
 if [ -e "auto_pull.html" ]; then
@@ -38,5 +38,11 @@ if [ `echo "$g" | wc -c` -gt 1 ]; then
 	echo "The Class is OPEN!!!!"
 else
 	echo "The class is CLOSED!"
+	g="CLOSED!"
 fi
 
+
+## Create log file, So I know that it's running
+touch "/home/anita/src/ind/reg/logfile_`date +%F`"
+logfile="/home/anita/src/ind/reg/logfile_`date +%F`"
+echo "$g" >> "$logfile"
